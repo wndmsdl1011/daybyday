@@ -1,0 +1,212 @@
+/* 전체 화면 스타일 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'SF_HambakSnow';
+  font-size: 14px;
+  background-color: #f0f0f0;
+}
+
+@font-face {
+  font-family: 'SF_HambakSnow';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_HambakSnow.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#calendar {
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+/* 모달 전체 영역 */
+#todoModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 어두운 배경 */
+  display: none; /* 기본적으로 숨김 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 최상위로 배치 */
+}
+
+/* 모달 컨텐츠 영역 */
+.modal-content {
+  background-color: white;
+  padding: 20px; /* 내부 여백 */
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
+  text-align: center;
+  width: 90%; /* 최대 너비를 제한 */
+  max-width: 500px; /* 고정된 최대 크기 */
+  overflow: hidden; /* 내용이 벗어나지 않도록 설정 */
+  box-sizing: border-box; /* 여백과 패딩 포함 */
+}
+
+/* 선택된 날짜 텍스트 */
+#selectedDateText {
+  font-size: 18px;
+  color: gray;
+  margin: 10px 0 20px; /* 상단과 하단 여백 */
+  text-align: center;
+}
+
+/* 입력 영역 스타일 */
+.input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* 필드 간격 */
+  margin-bottom: 20px;
+}
+
+.input-area input[type="text"],
+#add-button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* 시간 입력 스타일 */
+.time-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px; /* 시작 시간과 끝나는 시간 사이 간격 */
+}
+
+.time-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 텍스트와 필드 정렬 */
+  flex: 1;
+}
+
+.time-input-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.time-input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+#add-button,
+#clearAllButton,
+#closeModalButton {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%; /* 버튼 너비를 고정 */
+  box-sizing: border-box;
+}
+
+#add-button {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#add-button:hover {
+  background-color: #0056b3;
+}
+
+#clearAllButton {
+  background-color: red;
+  color: white;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+#clearAllButton:hover {
+  background-color: darkred;
+}
+
+#closeModalButton {
+  background-color: #ccc;
+  color: black;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+#closeModalButton:hover {
+  background-color: #aaa;
+}
+
+/* 완료된 이벤트 스타일 */
+.completed-event {
+  background-color: lightgray;
+  text-decoration: line-through;
+}
+
+/* 할 일 목록 스타일 */
+#task-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  max-height: 200px; /* 목록 최대 높이 */
+  overflow-y: auto; /* 스크롤 활성화 */
+}
+
+#task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid lightgray;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#task-list li.completed {
+  background-color: #d4edda;
+}
+
+/* 체크와 삭제 버튼 스타일 */
+#task-list li button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+#task-list li button:hover {
+  opacity: 0.8;
+}
+
+.fc-col-header-cell-cushion, .fc-daygrid-day-number {
+  text-decoration: none;
+}
+
+.fc-scrollgrid-sync-inner > .fc-col-header-cell-cushion,
+.fc-day-mon .fc-daygrid-day-number,
+.fc-day-tue .fc-daygrid-day-number,
+.fc-day-wed .fc-daygrid-day-number,
+.fc-day-thu .fc-daygrid-day-number,
+.fc-day-fri .fc-daygrid-day-number {
+  color: black;
+}
+
+.fc-day-sun .fc-col-header-cell-cushion,
+.fc-day-sun a{
+  color : red;
+}
+
+.fc-day-sat .fc-col-header-cell-cushion,
+.fc-day-sat a {
+  color : blue;
+}

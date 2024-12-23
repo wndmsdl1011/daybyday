@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day By Day</title>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+    <script src="calendar.js" defer></script>
+    <link rel="stylesheet" href="calendar.css" />
+  </head>
+  <body>
+    <header>
+      <h1 style="text-align: center">Day By Day</h1>
+      <br />
+    </header>
+
+    <div id="calendar"></div>
+
+    <!-- TODO List Modal -->
+    <div id="todoModal">
+      <div class="modal-content">
+        <h1>TODO LIST</h1>
+        <p id="selectedDateText">Date:</p>
+        <section class="input-area">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="이곳에 해야할 일을 적어주세요"
+          />
+          <div class="time-inputs">
+            <div class="time-input-group">
+              <label for="task-start-time">시작 시간</label>
+              <input type="time" id="task-start-time" />
+            </div>
+            <div class="time-input-group">
+              <label for="task-end-time">끝나는 시간</label>
+              <input type="time" id="task-end-time" />
+            </div>
+          </div>
+          <div class="notification-options">
+            <input type="checkbox" id="notification-enabled" />
+            <label for="notification-enabled">알림 사용</label> <br /><br />
+            <label for="notification-offset">알림 시간:</label>
+            <select id="notification-offset">
+              <option value="5">시작 5분 전</option>
+              <option value="10">시작 10분 전</option>
+              <option value="30">시작 30분 전</option>
+            </select>
+          </div>
+          <button id="add-button">추가</button>
+        </section>
+        <ul id="task-list"></ul>
+        <button id="clearAllButton">모두 삭제</button>
+        <button id="closeModalButton">닫기</button>
+      </div>
+    </div>
+  </body>
+</html>
